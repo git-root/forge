@@ -1293,6 +1293,42 @@ var UTIL = require('../../lib/util');
         // this would be more optimal
         //_test('02 04 FF FF FF FF', '02 01 FF');
       });
+      it('basic asn1 from DER', function() {
+        function _test(hin) {
+          var derIn = _h2b(hin);
+          var asn1Out = ASN1.fromDer(derIn);
+          _asn1dump(asn1Out);
+          // eslint-disable-next-line max-len
+          let v = {tagClass: 0, type: 16, constructed: true, composed: false, value: [{tagClass: 0, type: 12, constructed: false, optional: true, capture: 'string1'}, {tagClass: 0, type: 2, constructed: false, optional: true, capture: 'int1'}, {tagClass: 0, type: 12, constructed: false, optional: true, capture: 'string2'}]};
+          var cap = {};
+          var errors = [];
+          _asn1dump(ASN1.fromDer(asn1Out.value[1].value));
+          var options = {parseSupportedTypes: true};
+          // eslint-disable-next-line max-len
+          ASN1.validate(ASN1.fromDer(asn1Out.value[1].value), v, cap, errors, options);
+          console.log(cap['string1' + ' ' + cap['string2']]);
+          ASSERT.equal(cap.int1, 25);
+          ASSERT.equal(cap.string1, 'EAA_DEMO');
+          ASSERT.equal(cap.string2, 'ZTCORE');
+        }
+        // optimial
+        /*_test('30 30 80 11 00 FF FF FF  FF FF FF FF FF FF FF FF'+
+        'FF FF FF FF FF 81 06 46  61 6C 63 6F 6E 83 01 02' +
+        'A4 04 80 02 46 51 A5 0A  0C 03 43 61 72 0C 03 47' +
+        '50 53');
+        console.log('NO AUTOTAGS');
+        _test('30 2E 02 11 00 FF FF FF  FF FF FF FF FF FF FF FF' +
+        'FF FF FF FF FF 0C 06 46  61 6C 63 6F 6E 0A 01 00' +
+        '02 02 46 50 30 0A 0C 03  43 61 72 0C 03 47 50 53');
+        */
+        // eslint-disable-next-line max-len
+        _test('30' +
+         '22 06 07 2A 03 04 05 06  07 09 04 17 30 15 0C 08' +
+         '45 41 41 5F 44 45 4D 4F  02 01 19 0C 06 5A 54 43' +
+         '4F 52 45');
+        // eslint-disable-next-line max-len
+        // _test('308203f0308202d8a0030201020214464daba63872dace22bfe2e97cd1bd5e5c4ba4bd300d06092a864886f70d01010b050030583112301006035504030c09646e7373616d706c65310b300906035504061302494e3113301106035504080c0a54616d696c204e6164753110300e06035504070c074368656e6e6169310e300c060355040a0c0564756d6d79301e170d3230303832373039343831355a170d3231303832373039343831355a30583112301006035504030c09646e7373616d706c65310b300906035504061302494e3113301106035504080c0a54616d696c204e6164753110300e06035504070c074368656e6e6169310e300c060355040a0c0564756d6d7930820122300d06092a864886f70d01010105000382010f003082010a0282010100a5af81d93bb41ab9060a0b221e4f7a75a5c8da31411993816ca73e66d03bcc01f27a70a443a114029025c85492a7cf36e2f1a918b59234ed4ba53ebd7230935136a7564d2bbd836f98f5981939f1113aa9e2dca9ac94e5422ce5c08c12ec311809322ea8148af39e3e2a20381050d88dcdc90c0ce67784ff9eb890d805353d931e6e15c6605a1b48a5526a9a78078406c39a8a12dd1ec09c2d203288cb6af6edf3e1b311f3a3c2511c1ea752be992e08ffef903236876b5cf95734ad46729dba136ca46a1dd771bf188fbdcb820efb750e20507d8df737e7da71a323f3df9956e8ebf21f63c239ea0ff25d3fe5c8ba09a46fa121556cccd1500266870c51748f0203010001a381b13081ae301d0603551d0e04160414f9c95b4aa30fe4e13cd8873fdf7a668371092fce301f0603551d23041830168014f9c95b4aa30fe4e13cd8873fdf7a668371092fce300e0603551d0f0101ff0404030202ac30200603551d250101ff0416301406082b0601050507030106082b06010505070302300c0603551d130101ff04023000302c0603551d1104253023820f7777772e646e736e616d652e636f6d81107669636b40646e736e616d652e636f6d300d06092a864886f70d01010b050003820101002527776ca07374459a86143f0832efaa9382a14f7318732f8ce41b63f32b6c34da7e927a4ff8b08e2628104cf0d34238e0117c06c8c358f2e1df57f03c3dfb8c7a1d3294504acfb1fae6cc486bb5113eacf463b5ad0370facb2945d8789d5efb2e232f2f3ef1b16c50b365e070c303a69c23d2fff42b217cc27261dfde9d32e42e41e3ae76488784be2927743dfaead69c6f52686da5fb315650bd19a5c049f6fa163e898bd4534c00060dfbe2a4982d6d4dfe36401bdc1dfe7087f6de4159df2c173d49fa47543fba6d1b97eb20be631f5fb5e1d1a3367ecc0d29e481eca61e3fd496699bd4163a1faf1dcbbf742b52ee19773a14bc1e61f9882bd8c9cfa92e');
+      });
     })();
   });
 })();
