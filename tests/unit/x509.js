@@ -199,7 +199,6 @@ var UTIL = require('../../lib/util');
     'Xt0s\r\n' +
     '-----END CERTIFICATE-----\r\n'
   ];
-
   var _pem_past_2050 = {
     privateKey: '-----BEGIN PRIVATE KEY-----\r\n' +
       'MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCtQM1R5VoB8Hrr\r\n' +
@@ -252,6 +251,40 @@ var UTIL = require('../../lib/util');
       'FDeZMUBehXXEJLXrirfmO2KFmy3iKrniJDDa35Lg\r\n' +
       '-----END CERTIFICATE-----\r\n'
   };
+
+  var custom_extension_pem = {
+    certificate: '-----BEGIN CERTIFICATE-----\r\n' +
+      'MIIFQzCCAyugAwIBAgIJAINsjTmSKC9JMA0GCSqGSIb3DQEBCwUAMHExCzAJBgNV\r\n' +
+      'BAYTAlVTMQswCQYDVQQIDAJWQTERMA8GA1UEBwwIU29tZUNpdHkxEzARBgNVBAoM\r\n' +
+      'CiBNeUNvbXBhbnkxEzARBgNVBAsMCk15RGl2aXNpb24xGDAWBgNVBAMMD3d3dy5j\r\n' +
+      'b21wYW55LmNvbTAeFw0yMDA4MTkwNzM5NTFaFw0yMTA4MTkwNzM5NTFaMBExDzAN\r\n' +
+      'BgNVBAMMBmNsaWVudDCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAMEV\r\n' +
+      'uJZgpMdz59CDhdWOoWOX6F2CHduTEeKJaOAvqCqnSWrSU6Di23Rc7PzZBnrHBq7o\r\n' +
+      'h3S+a/fddLzFtNUvWdvQIsm5d77cSGk/Zv4MJimvFcl7thfmmJ6d87WKSYoc37Vj\r\n' +
+      'ptWIK45PdGg9rONC86RLKVaRPQD77xv3SYxAKpW+JjR/nMx7FyB8wrh3TCr2WEwc\r\n' +
+      'y4S3k9OMrVjdE+DDxo1DT25NXT65h7tSEOhrOYNKYb2psmOYdSCkQfUGqGDXc2Jx\r\n' +
+      'SK3P4yWKoqRHybVVXPjKJsyCoMYw+qMOMSBH0f9FjWLFhPcBd+03RJQ0bA1u5per\r\n' +
+      's4kCPr+/6P+v3+/Sm+nBqkZhDal/D/5skUsXbiPKY2iQenInLar6wcH9FSAbWTTZ\r\n' +
+      '1wTS9ezdXsE1zKo0pAiULTN5aFgj/5IKhstdSPFC1K92rA9HAzsSz/0fCnoS3v2i\r\n' +
+      'mSY/2U7itaN3LzPS/kGwAHsmIHn4qSl5/LPGgMWiZXnf7F+qVpcZVS1DvxJnoiI3\r\n' +
+      'U4dpf0YTLGohNOz1F75cCmJGlOJGAtv0gHtewXfidhfBLNjFMrtilfWBS5FZqRUY\r\n' +
+      'f+ZBE/GjV3hb0SlobWp+B1d9lCWd2YURcTipMFHw7euitcTnUVe+QUbXp15uSrzA\r\n' +
+      'rqIitXW+dmtDBOpB2O2Vx1H8Quo95AEE1YnPnXVjAgMBAAGjPjA8MBYGByoDBAUG\r\n' +
+      'BwgECwwJU29tZXRoaW5nMCIGByoDBAUGBwkEFzAVDAhFQUFfREVNTwIBGQwGWlRD\r\n' +
+      'T1JFMA0GCSqGSIb3DQEBCwUAA4ICAQA2qPJkRGwASwVc/pdgwWvemK8qjCAhvQAr\r\n' +
+      'E7B54lk7TiSbMpjN8dSvsEmI1tuBiJeJlAex9gXCtiR0+VOjPuefWIlN3eyq1yRj\r\n' +
+      'jZ//HKErKH8joDy8oRYqpPF43e2FygLKxh7dH4/BRO7PSw2koWAhqA0jzxvssc6f\r\n' +
+      'vqDSDLtHKnkveqbRfdreodFt/CuXpim3xn0jL//X7Z9wz1d9ASQV5cZV/nYhNBS/\r\n' +
+      'NQAM06ZZz/cXDeKnVXEV/r3uMsEMlOMnu5N75qULdGl1p5h6/dBKI3fPLk5Zjz53\r\n' +
+      'xjwg/s9H4K9dTL4N/Y/QIE5sWY4e8V+4yMCPc3PriftfduyIoq9fUq7zBAoohfB1\r\n' +
+      'J6EuIK1LmjEinrrldiDXd7vM+08IGGeARsYYsY8zjHWbnj6Auhqu1f1XhiYAyiHj\r\n' +
+      'f6BTrLj9qQj+zxRsug4/YtCDJZhZROieXk0re/ZkkoKgNbTrPkVuYxSgLftoLPwn\r\n' +
+      'qmWksRFkFuwY2cDfDTugA384CEAuaCSNjOK9TjsQ00wc0hCyaEsA5ZGl1SsZsV+n\r\n' +
+      'lcQjdRzIbNdvRqhL7hIVpDx+sfvkuu+hGVzj6NGpqp0/t4w3Wz5lQnWD75dDqm1r\r\n' +
+      '/i2WNq+GRcswGEomnES9dACm6+MG/PI/vTkthPEjbjwIt2DGzyaPgjn9Axq0bTJE\r\n' +
+      'ruCiVMW97A==\r\n' +
+      '-----END CERTIFICATE-----\r\n'
+  }
 
   describe('x509', function() {
     it('should convert SHA-1 based certificate to/from PEM', function() {
@@ -1160,6 +1193,24 @@ var UTIL = require('../../lib/util');
           return true;
         }
       });
+    });
+
+    it('should import certificate with custom extension', function() {
+      var cert = PKI.certificateFromPem(custom_extension_pem.certificate);
+      // verify nsComment extension
+      var index = findIndex(cert.extensions, {id: '1.2.3.4.5.6.7.9'});
+      ASSERT.ok(index !== -1);
+      var ext = cert.extensions[index];
+      console.log(ext);
+      var capture = {};
+      var errors = [];
+      let v = {tagClass: 0, type: 16, constructed: true, value: [{tagClass: 0, type: 12, constructed: false, optional: true, capture: 'string1'}, {tagClass: 0, type: 2, constructed: false, optional: true, capture: 'int1'}, {tagClass: 0, type: 12, constructed: false, optional: true, capture: 'string2'}]};
+      const options = {parseSupportedTypes: true};
+      if(!ASN1.validate(ASN1.fromDer(ext.value), v, capture, errors, options)) {
+        console.log('ERROR');
+      } else {
+        console.log('VIUCKY' + capture);
+      }
     });
 
     it('should verify certificate with sha1WithRSAEncryption signature', function() {

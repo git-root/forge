@@ -1297,12 +1297,12 @@ var UTIL = require('../../lib/util');
         function _test(hin) {
           var derIn = _h2b(hin);
           var asn1Out = ASN1.fromDer(derIn);
-          _asn1dump(asn1Out);
+          //_asn1dump(asn1Out);
           // eslint-disable-next-line max-len
           let v = {tagClass: 0, type: 16, constructed: true, composed: false, value: [{tagClass: 0, type: 12, constructed: false, optional: true, capture: 'string1'}, {tagClass: 0, type: 2, constructed: false, optional: true, capture: 'int1'}, {tagClass: 0, type: 12, constructed: false, optional: true, capture: 'string2'}]};
           var cap = {};
           var errors = [];
-          _asn1dump(ASN1.fromDer(asn1Out.value[1].value));
+          //_asn1dump(ASN1.fromDer(asn1Out.value[1].value));
           var options = {parseSupportedTypes: true};
           // eslint-disable-next-line max-len
           ASN1.validate(ASN1.fromDer(asn1Out.value[1].value), v, cap, errors, options);
